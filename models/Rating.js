@@ -10,12 +10,6 @@ var RatingSchema = new Schema({
   title: String,
   // `body` is of type String
   body: String,
-  // `rating` is an integer out of five
-  ratingNum: {
-      type: Number,
-      required: true,
-      match: [/12345.{,6}/, "Only one number allowed out of 5"]
-  }
 });
 
 // This creates our model from the above schema, using mongoose's model method
