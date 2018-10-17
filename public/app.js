@@ -1,13 +1,11 @@
 $.getJSON("/movies", function (data) {
     for (let i = 0; i < data.length; i++) {
 
-        var j = 0;
-        var dataImg = data[i].image.replace("_UY67_CR" + j + ",0,45,67_AL_", "");
-
+        var dataImg = data[i].image.replace(/_U[A-Z][1-9][1-9]_CR[0-9],0,45,67_AL_/g,"");
+        
         $("#movies").append("<div class='movieRow row d-flex justify-content-between border-bottom'><p class='titleMain font-weight-bold text-left' data-toggle='modal' data-target='#exampleModal' data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + "</p><a href='https://www.imdb.com" + data[i].link + "'>" + "<img class='poster' alt='Movie Poster' src='" + dataImg + "'></a></div>");
 
     }
-    j++;
 });
 
 
